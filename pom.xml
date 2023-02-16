@@ -6,7 +6,11 @@
 
   <groupId>com.gobierno.apis</groupId>
   <artifactId>ejemplo_cifrado_rsa</artifactId>
+  <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
+  <modules>
+    <module>cifrado_rsa</module>
+  </modules>
 
   <name>ejemplo_cifrado_rsa</name>
   <!-- FIXME change it to the project's website -->
