@@ -1,6 +1,7 @@
 package gobierno.code.apis.rsa.controller;
 
 import gobierno.code.apis.rsa.dao.RequestCifrado;
+import gobierno.code.apis.rsa.dao.RequestDesencriptado;
 import gobierno.code.apis.rsa.service.RsaService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -19,7 +20,16 @@ public class RsaController {
     @PostMapping("/ejemplo/rsa")
     public ResponseEntity<?> ejemploRSA(@RequestBody RequestCifrado request){
 
-        String respuesta = this.rsaService.encriptar(request.getTexto());
+        String respuesta = this.rsaService.encriptar(request.getTexto(), request.getLlavePublica());
+
+        return ResponseEntity.ok().body(respuesta);
+
+    }
+
+    @PostMapping("/ejemplo/desencriptar/rsa")
+    public ResponseEntity<?> ejemploDesencriptarRSA(@RequestBody RequestDesencriptado request){
+
+        String respuesta = this.rsaService.desencriptar(request.getTexto(), request.getLlavePrivada());
 
         return ResponseEntity.ok().body(respuesta);
 

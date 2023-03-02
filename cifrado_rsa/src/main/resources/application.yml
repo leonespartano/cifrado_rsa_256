@@ -1,2 +1,5 @@
-sever:
-  port: 8009
+server:
+  port: 8089
+spring:
+  application:
+    name: customer
